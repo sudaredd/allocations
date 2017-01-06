@@ -34,4 +34,6 @@ dependencies {
 	compile('org.springframework.integration:spring-integration-file')
 	runtime('mysql:mysql-connector-java')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile('org.springframework:spring-test')
+	
 }
