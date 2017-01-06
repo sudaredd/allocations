@@ -1,2 +1,3 @@
 # allocations
-first applcaiton with gradle
+Develop Allocations using spring boot, spring integration, gradle
+
