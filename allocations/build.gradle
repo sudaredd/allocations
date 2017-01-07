@@ -14,12 +14,17 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 
+springBoot {
+    mainClass = "alloc.AllocationsApplication"
+}
+
 jar {
 	baseName = 'allocations'
 	version = '0.0.1-SNAPSHOT'
 }
 
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
 	mavenCentral()
