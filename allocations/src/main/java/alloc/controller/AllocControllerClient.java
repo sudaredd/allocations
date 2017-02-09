@@ -12,7 +12,7 @@ public class AllocControllerClient {
 	public static void main(String args[]) {
         RestTemplate restTemplate = new RestTemplate();
         
-        IntStream.rangeClosed(1, 1000000)
+        IntStream.rangeClosed(1, 10000)
         .parallel()
         .forEach(i->
         		{

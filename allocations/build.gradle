@@ -30,13 +30,16 @@ repositories {
 	mavenCentral()
 }
 
-
+configurations {
+  runtime.exclude group: "org.apache.kafka", module: "kafka-clients"
+}
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-activemq')
 	compile('org.springframework.boot:spring-boot-starter-integration')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.integration:spring-integration-ftp')
 	compile('org.springframework.integration:spring-integration-file')
+	compile group: 'org.springframework.kafka', name: 'spring-kafka', version: '1.1.1.RELEASE'
 	runtime('mysql:mysql-connector-java')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('org.springframework:spring-test')
