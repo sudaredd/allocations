@@ -5,4 +5,4 @@
  * @author Sudarsana
  *
  */
-package alloc.kafka.msg;
+package alloc.kafka.sender;

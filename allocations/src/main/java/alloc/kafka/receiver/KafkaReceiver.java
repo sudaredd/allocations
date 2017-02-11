@@ -1,4 +1,4 @@
-package alloc.kafka;
+package alloc.kafka.receiver;
 
 import java.util.concurrent.CountDownLatch;
 

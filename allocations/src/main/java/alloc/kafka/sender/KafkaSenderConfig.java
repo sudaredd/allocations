@@ -1,4 +1,4 @@
-package alloc.kafka;
+package alloc.kafka.sender;
 
 import java.util.HashMap;
 import java.util.Map;
