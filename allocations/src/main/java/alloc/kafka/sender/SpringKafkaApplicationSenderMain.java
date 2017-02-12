@@ -54,7 +54,7 @@ ExecutorService executor = Executors.newFixedThreadPool(4);
 	    	for(int i=0; i<size;i++) {
 	    		//final int ii=i;
 	    	//	executor.execute(()->kafkaSender.sendMessage("darsan", ii+":"+fixMsg));
-	    		kafkaSender.sendMessage("darsan", i+":"+fixMsg);
+	    		kafkaSender.sendMessageWithPattition("mulitiple_partitions",i%2, i+":"+fixMsg);
 	    	}
 
 		}

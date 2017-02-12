@@ -35,9 +35,9 @@ public class KafkaReceiverConfig {
                 StringDeserializer.class);
         // consumer groups allow a pool of processes to divide the work of
         // consuming and processing records
-        props.put(ConsumerConfig.GROUP_ID_CONFIG, "sample-group-1");
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, "sample-group");
         
-        props.put(ConsumerConfig.CLIENT_ID_CONFIG, "sample-consumer_1");
+        props.put(ConsumerConfig.CLIENT_ID_CONFIG, "sample-consumer");
 
         return props;
     }

@@ -27,7 +27,7 @@ public class KafaRectorReceiver {
 	private static final Logger log = LoggerFactory.getLogger(KafaRectorReceiver.class.getName());
 
     private static final String BOOTSTRAP_SERVERS = "localhost:9092";
-    private static final String TOPIC = "darsan";
+    private static final String TOPIC = "mulitiple_partitions";
 
     private final ReceiverOptions<Integer, String> receiverOptions;
     private final SimpleDateFormat dateFormat;

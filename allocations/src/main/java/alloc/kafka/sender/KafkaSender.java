@@ -22,7 +22,21 @@ public class KafkaSender {
 	        ListenableFuture<SendResult<Integer, String>> future = kafkaTemplate
 	                .send(topic, message);
 
-	        // you can register a callback with the listener to receive the result
+	        callBackPublsih(message, future);
+	    }
+	    
+	    public void sendMessageWithPattition(String topic, int partition, String message) {
+	        // the KafkaTemplate provides asynchronous send methods returning a
+	        // Future
+	        ListenableFuture<SendResult<Integer, String>> future = kafkaTemplate
+	                .send(topic, partition, message);
+
+	        callBackPublsih(message, future);
+	    }
+
+		private void callBackPublsih(String message,
+				ListenableFuture<SendResult<Integer, String>> future) {
+			// you can register a callback with the listener to receive the result
 	        // of the send asynchronously
 	        future.addCallback(
 	                new ListenableFutureCallback<SendResult<Integer, String>>() {
@@ -44,5 +58,5 @@ public class KafkaSender {
 
 	        // alternatively, to block the sending thread, to await the result,
 	        // invoke the future’s get() method
-	    }
+		}
 }

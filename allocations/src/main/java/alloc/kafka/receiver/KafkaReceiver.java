@@ -13,7 +13,7 @@ public class KafkaReceiver {
 
 	    private CountDownLatch latch = new CountDownLatch(1);
 
-	    @KafkaListener(topics = "darsan")
+	    @KafkaListener(topics = "mulitiple_partitions")
 	    public void receiveMessage(String message) {
 	        LOGGER.info("received message='{}'", message);
 	        latch.countDown();
