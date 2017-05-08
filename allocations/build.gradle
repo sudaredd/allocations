@@ -39,6 +39,7 @@ dependencies {
 	compile group: 'org.springframework.kafka', name: 'spring-kafka', version: '1.1.1.RELEASE'
 	compile group: 'io.projectreactor.kafka', name: 'reactor-kafka', version: '1.0.0.M1'
 	compile group: 'io.projectreactor', name: 'reactor-core', version: '3.0.3.RELEASE'
+	compile group: 'org.mockito', name: 'mockito-core', version: '1.10.19'
 	runtime('mysql:mysql-connector-java')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('org.springframework:spring-test')
