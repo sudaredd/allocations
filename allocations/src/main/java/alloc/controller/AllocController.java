@@ -3,15 +3,16 @@ package alloc.controller;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class AllocController {
 
-	private static Logger log = Logger.getLogger(AllocController.class);
-
+	private static final Logger log = LoggerFactory
+            .getLogger(AllocController.class);
 	private AtomicLong counter = new AtomicLong();
 
 	@RequestMapping("/")

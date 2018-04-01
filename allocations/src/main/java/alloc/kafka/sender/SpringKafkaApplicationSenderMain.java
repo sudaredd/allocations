@@ -2,26 +2,14 @@ package alloc.kafka.sender;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.function.IntConsumer;
-import java.util.stream.IntStream;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
-import alloc.AllocationsApplication;
 import alloc.kafka.receiver.KafkaReceiver;
-import alloc.kafka.receiver.SpringKafkaApplicationReceiverMain;
-import static org.assertj.core.api.Assertions.assertThat;
 
 @EnableAutoConfiguration
 @SpringBootApplication
@@ -52,9 +40,9 @@ public class SpringKafkaApplicationSenderMain implements CommandLineRunner {
 */	    	int size = 200;
 ExecutorService executor = Executors.newFixedThreadPool(4);
 	    	for(int i=0; i<size;i++) {
-	    		//final int ii=i;
-	    	//	executor.execute(()->kafkaSender.sendMessage("darsan", ii+":"+fixMsg));
-	    		kafkaSender.sendMessageWithPattition("mulitiple_partitions",i%2, i+":"+fixMsg);
+	    		final int ii=i;
+	    		executor.execute(()->kafkaSender.sendMessage("darsan", ii+fixMsg));
+	    //		kafkaSender.sendMessageWithPattition("muliti_partitions",i%2, i+":"+fixMsg);
 	    	}
 
 		}

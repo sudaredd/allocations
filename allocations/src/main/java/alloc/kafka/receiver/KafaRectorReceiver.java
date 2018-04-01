@@ -14,7 +14,7 @@ import org.apache.kafka.common.serialization.StringDeserializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import reactor.core.Cancellation;
+import reactor.core.Disposable;
 import reactor.core.publisher.Flux;
 import reactor.kafka.receiver.Receiver;
 import reactor.kafka.receiver.ReceiverOffset;
@@ -26,7 +26,7 @@ public class KafaRectorReceiver {
 	private static final Logger log = LoggerFactory.getLogger(KafaRectorReceiver.class.getName());
 
     private static final String BOOTSTRAP_SERVERS = "localhost:9092";
-    private static final String TOPIC = "mulitiple_partitions";
+    private static final String TOPIC = "darsan";
 
     private final ReceiverOptions<Integer, String> receiverOptions;
     private final SimpleDateFormat dateFormat;
@@ -42,7 +42,7 @@ public class KafaRectorReceiver {
         receiverOptions = ReceiverOptions.create(props);
         dateFormat = new SimpleDateFormat("HH:mm:ss:SSS z dd MMM yyyy");
     }
-    public Cancellation consumeMessages(String topic, CountDownLatch latch) {
+    public Disposable consumeMessages(String topic, CountDownLatch latch) {
 
         ReceiverOptions<Integer, String> options = receiverOptions.subscription(Collections.singleton(topic))
                 .addAssignListener(partitions -> log.debug("onPartitionsAssigned {}", partitions))
@@ -65,7 +65,7 @@ public class KafaRectorReceiver {
         int count = 20;
         CountDownLatch latch = new CountDownLatch(count);
         KafaRectorReceiver consumer = new KafaRectorReceiver(BOOTSTRAP_SERVERS);
-        Cancellation disposable = consumer.consumeMessages(TOPIC, latch);
+        Disposable disposable = consumer.consumeMessages(TOPIC, latch);
         latch.await();
         disposable.dispose();
     }

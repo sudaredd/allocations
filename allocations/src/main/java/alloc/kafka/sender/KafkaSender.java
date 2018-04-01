@@ -57,6 +57,6 @@ public class KafkaSender {
 	                });
 
 	        // alternatively, to block the sending thread, to await the result,
-	        // invoke the future’s get() method
+	        // invoke the futures get() method
 		}
 }
